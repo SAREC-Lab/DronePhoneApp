@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<!-- Include Google Maps JS API -->
+		<script type="text/javascript"
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYLb2-xrpgN7fGHYHiRyhjKTK6ddvWG0A &sensor=false">
+		</script>
+		<!-- <style type="text/css" src="css/test.css"></style> -->
+		<style>
+			#mapDiv { 
+				width: 1200px; 
+				height: 800px;
+			}
+		</style>
+		<!-- Create a Static Map here -->
+		<script type="text/javascript">
+		//The map is defined as a global variable so that we can access it
+			//from other functions
+			var map;
+			var droneIDs = [];
+			var markers = [];
+			function initMap () {
+				
+				//Starting options of the map
+				var mapOptions = {
+					center: new google.maps.LatLng(48.848446, 2.325283),
+					zoom: 14,
+					mapTypeId: google.maps.MapTypeId.ROADMAP
+				};
+				
+				//Get map DOM element
+				var mapElement = document.getElementById('mapDiv');
+				
+				//Create a map using the obtained DOM element
+				map = new google.maps.Map(mapElement, mapOptions);
+				
+				//addStandardMarker();
+				addStandardMarkers();
+				
+				
+			}
+			
+			function placeMarker(xLat, xLon, xDroneID) {
+				var coordinate = new google.maps.LatLng(xLat, xLon);
+				marker = new google.maps.Marker({
+					position: coordinate,
+					//icon: 'square.png',
+					title: xDroneID
+				});
+				markers.push(marker);
+				marker.setMap(map);
+				var infowindow = new google.maps.InfoWindow({
+					content: xDroneID
+				});
+				google.maps.event.addListener(marker, 'click', function() {
+					infowindow.open(map,marker);
+				});
+			}
+			
+			function addStandardMarkers() {
+				var coordinates;
+				$.ajax({
+					async: false,
+					url: 'file:///C:/Users/Brandon/Documents/drones_stuff/finalProject/currentPositions.json',
+					data: "",
+					accepts: 'application/json',
+					dataType: 'json',
+					success: function (data) {
+						removeMarkers();
+						for (var i = 0; i < data.length; i++) {
+							droneIDs.push(data[i].droneID);
+							placeMarker(data[i].lat, data[i].lon, data[i].droneID);
+						}
+					}
+				})
+			}
+			
+			function addStandardMarker() {
+				var coordinate = new google.maps.LatLng(48.864446, 2.325283);
+				marker = new google.maps.Marker({
+					position: coordinate,
+					title: 'Start of Race'
+				});
+				marker.setMap(map);
+			}
+			
+			function removeMarkers() {
+				for (var i = 0; i < markers.length; i++){
+					markers[i].setMap(null);
+				}
+			}
+			
+			function intermittentReadCoords() { 
+				myVar = setInterval(addStandardMarkers, 500);
+			}
+			
+			google.maps.event.addDomListener(window, 'load', initMap);
+			intermittentReadCoords();
+			
+		</script>
+	</head>
+	<body>
+		<b>South Bend - Map 1</b>
+		<div id="mapDiv"></div>
+	</body>
+</html>
