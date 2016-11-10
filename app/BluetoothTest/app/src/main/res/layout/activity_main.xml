@@ -12,5 +12,55 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="Hello World!"
+        android:id="@+id/textview"/>
+
+    <Button
+        android:text="Bluetooth Off"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_bt_off"
+        android:layout_below="@+id/button_bt_on"
+        android:layout_alignParentStart="true"
+        android:onClick="off"/>
+
+
+    <Button
+        android:text="Make Discoverable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/button_bt_on"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/button_bt_d"
+        android:onClick="visible"/>
+
+
+    <Button
+        android:text="Bluetooth On"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_bt_on"
+        android:layout_below="@+id/textview"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="129dp"
+        android:onClick="on"/>
+
+    <Button
+        android:text="Show Devices"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_bt_d"
+        android:layout_alignStart="@+id/button_bt_d"
+        android:id="@+id/button_show_devices"
+        android:onClick="list"/>
+
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listView"
+        android:layout_below="@+id/button_bt_off"
+        android:layout_alignParentStart="true" />
+
+
 </RelativeLayout>
