@@ -13,10 +13,10 @@ pi = 3.1415926535
 lat2m = 111063.93 #degrees latitude to meters conversion
 lon2m = 83471.18 #longitude to meters
 
-speed_scale = 1.5 #maximum speed 
+speed_scale = 2 #maximum speed 
 angle_m = pi/4 #maximum angle
 
-alt = 9
+alt = 5
 
 def parse_str(str_in):
 	elem = str_in.split( )
