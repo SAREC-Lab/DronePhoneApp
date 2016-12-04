@@ -9,10 +9,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
     private SensorManager mSensorManager;
     private Sensor mSensor;
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
     }
 
     @Override
@@ -37,5 +42,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         ((TextView) findViewById(R.id.textView1)).setText(Float.toString(event.values[0]));
         ((TextView) findViewById(R.id.textView2)).setText(Float.toString(event.values[1]));
         ((TextView) findViewById(R.id.textView3)).setText(Float.toString(event.values[2]));
+
+        mDatabase.child("y").setValue(event.values[0]);
+        mDatabase.child("x").setValue(event.values[1]);
+        mDatabase.child("z").setValue(event.values[2]);
+
     }
 }
