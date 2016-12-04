@@ -5,7 +5,7 @@ class talker:
 	def __init__(self):
 		self.null = None
 		
-	def sendDroneCommand(command, vehicle):
+	def sendDroneCommand(self, command, vehicle):
 		if command == 'LAND':
 			vehicle.mode = VehicleMode("LAND")
 			while True:
@@ -19,6 +19,7 @@ class talker:
 					break;
 				time.sleep(1)
 		else:
-			vehicle.airspeed = command.speed
-			location = LocationGlobalRelative(command.lat, command.lon, command.alt)
-			vehicle.simple_goto(location)
+			location = LocationGlobalRelative(command[0], command[1], command[2])
+			vehicle.simple_goto(location, groundspeed=command[3])
+
+

@@ -6,19 +6,18 @@ class master:
 	def __init__(self):
 		self.null = None
 		
-	def activateCallLoop(self, site, direct, vehicle):
-		if (site == '') and (direct == ''):
+	def activateCallLoop(self, config, vehicle):
+		if config == '':
 			pass
 		else:
-			currentConnect = connector.connector(site)
+			currentConnect = connecter.connector(config)
 		currentDecider = decider.decider()
 		data = ''
 		while(data != 'END'):
-			if (site == '') and (direct == ''):
-				print('Input: ')
-				data = input()
+			if config == '':
+				data = input('Input: ')
 			else:
-				data = currentConnect.getData()
+				data = [currentConnect.getData('x'), currentConnect.getData('y')]
 			currentDecider.sendCommand(data, vehicle)
 			
 			

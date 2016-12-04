@@ -5,27 +5,23 @@ import random
 import master
 
 #Set up option parsing to get connection string
-import argparse
-parser = argparse.ArgumentParser(description='Commands vehicle using vehicle.simple_goto.')
-parser.add_argument('--connect', help="Vehicle connection target string. If not specified, SITL automatically started and used.")
+import argparse  
+parser = argparse.ArgumentParser(description='Connects to SITL on local PC by default.')
+parser.add_argument('--connect', help="vehicle connection target string.")
 args = parser.parse_args()
 
 connection_string = args.connect
-sitl = None
 
 
-#Start SITL if no connection string specified
-if not connection_string:
-	import dronekit_sitl
-	sitl = dronekit_sitl.start_default()
-	connection_string = sitl.connection_string()
-
-
-
-
-# Connect to the Vehicle
-print( 'Connecting to vehicle on: %s' % connection_string)
+# Connect to the Vehicle. 
+#   Set `wait_ready=True` to ensure default attributes are populated before `connect()` returns.
+print "\nConnecting to vehicle on: %s" % connection_string
 vehicle = connect(connection_string, wait_ready=True)
+
+print " Is Armable?: %s" % vehicle.is_armable
+print " Global Location: %s" % vehicle.location.global_frame
+
+
 def arm_and_takeoff(aTargetAltitude):
 	"""
 	Arms vehicle and fly to aTargetAltitude.
@@ -55,7 +51,7 @@ def arm_and_takeoff(aTargetAltitude):
 	while True:
 		print( " Altitude: ", vehicle.location.global_relative_frame.alt)
 		#Break and return from function just below target altitude.
-		if vehicle.location.global_relative_frame.alt>=aTargetAltitude*0.95:
+		if vehicle.location.global_relative_frame.alt>=aTargetAltitude*0.90:
 			print( "Reached target altitude")
 			break;
 		time.sleep(1)
@@ -78,10 +74,13 @@ def close_shop():
 
 	time.sleep(20)
 	
-	
+config = {
+  "apiKey": "AIzaSyAwV9FXEvHaDjTr16yOfcoK14d0GrrGfRQ",
+  "authDomain": "dronephone-a53c9.firebaseio.com",
+  "databaseURL": "https://dronephone-a53c9.firebaseio.com",
+  "storageBucket": "dronephone-a53c9.appspot.com"
+}
 currentMaster = master.master()
-site = ''
-direct = ''
-currentMaster.activateCallLoop(site, direct, vehicle)
+currentMaster.activateCallLoop(config, vehicle)
 
 close_shop()

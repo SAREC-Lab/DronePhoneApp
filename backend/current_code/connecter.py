@@ -1,10 +1,12 @@
-from firebase import firebase
+import pyrebase
 
-class connecter:
 
-	def __init__(self, site):
-		self.firebase = firebase.FirebaseApplication(site, None)
+class connector:
+
+	def __init__(self, config):
+		self.firebase = pyrebase.initialize_app(config)
+		self.db = self.firebase.database()
 		
-	def getData(self, direct):
-		result = self.firebase.get(direct, None)
+	def getData(self, var):
+		result = self.db.child(var).get().val()
 		return result
