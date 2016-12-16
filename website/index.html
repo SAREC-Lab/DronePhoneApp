@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<title>Drone Phone</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3-theme-teal.css">
+
+
+<!--- NAVBAR --->
+<ul id="nav" class="w3-navbar w3-theme">
+  <!--- TODO: make navbar links jump to tags --->
+  <li><a class="w3-padding-16" href="#vision">Vision</a></li>
+  <li><a class="w3-padding-16" href="#theteam">The Team</a></li>
+  <li><a class="w3-padding-16" href="#glossary">Glossary</a></li>
+  <li><a class="w3-padding-16" href="#process">Process</a></li>
+  <li><a class="w3-padding-16" href="#hardware">Hardware</a></li>
+  <li><a class="w3-padding-16" href="#backend">Backend</a></li>
+  <li><a class="w3-padding-16" href="#theapp">The App</a></li>
+  <li><a class="w3-padding-16" href="#thezone">The Zone</a></li>
+  <li><a class="w3-padding-16" href="#future">Future Plans</a></li>
+  <li><a class="w3-padding-16" href="#links">Links</a></li>
+</ul>
+
+
+<!--- HEADER --->
+<header class="w3-container w3-theme w3-padding" id="myHeader">
+  <div class="w3-center">
+    <h1 class="w3-xxxlarge w3-animate-right">Drone Phone</h1>
+    <h4 class="w3-animate-right">A mobile app that you can use to seemlessly control your drone.</h4>  
+  </div>
+</header>
+
+
+<!--- Vision --->
+</br>
+<h2 id="vision" class="w3-center"> <b> Vision </b> </h2>
+</br>
+
+<div class="w3-row-padding">
+  <div class="w3-half w3-padding-right">
+    <h4> Create a phone application that allows the user to control their drone using the movement of their phone.</h4>
+    <h4> The phone application should be accessible and easy to use even for those with limited knowledge of flying drones.</h4>
+    <h4> Being able to control and fly a drone using your phone opens up more possibilities in the world of drone control, automation, and safety.</h4>
+  </div>
+
+  <div class="w3-half">
+    <div class="w3-card-2">
+      <img src="./static/logo.png" alt="logo" style="width:100%">
+    </div>
+  </div>
+</div>
+
+
+<!--- The Team --->
+</br>
+<h2 id="theteam" class="w3-center"> <b> The Team </b> </h2>
+</br>
+
+
+<div class="w3-row-padding">
+  <h3 class="w3-center"> Patrick Myron, Michael Thompson, Jared Rodgers, Brandon Hansen </h3>
+</div>
+
+<!--- Glossary --->
+</br>
+<h2 id="glossary" class="w3-center"> <b> Glossary </b> </h2>
+</br>
+
+<p>Phone: The phone is used to control the movement of the drone. For the purposes of this app we will be using an android phone</p>
+<p>Drone: The Iris 3dr. The drone is controlled by the phones commands.</p>
+<p>Zone: This is the area limitation placed on the drone for safety precautions.</p>
+<p>Ground Station: This is the computer that mediates the commands of the phone and the movements of the drone.</p>
+<p>Control Scheme: This is the pattern of phone to drone interaction that the system adheres to.</p>
+<p>Device Interaction: These are the communication schemes that take place between the drone, phone, and ground station.</p>
+
+
+<!--- Process --->
+</br>
+<h2 id="process" class="w3-center"> <b> Process </b> </h2>
+</br>
+
+<div class="w3-row-padding">
+  <div class="w3-half">
+    <div class="w3-card-2">
+      <img src="./static/jira.png" alt="jira" style="width:100%">
+    </div>
+  </div>
+  
+  <div class="w3-half">
+    <p> We used Jira to organize sprints and keep up to date on the status of our project.</p>
+    <p> Early software issues caused us to leave some tasks in the backlog and prioritize new tasks.</p>
+  </div>
+
+
+</div>
+
+<!--- Hardware --->
+</br>
+<h2 id="hardware" class="w3-center"> <b> Hardware </b> </h2>
+</br>
+
+<div class="w3-row-padding">
+  <div class="w3-half">
+    <p> We used the Iris 3DR Drone for our testing and final demonstration.</p>
+    <p> The Drone is a classic quad copter equipped with 4 propellers.</p>
+    <p> In addition we used and android phone and a laptop as the controller and ground station for the drone.</p>
+  </div>
+
+  <div class="w3-half">
+    <div class="w3-card-2">
+      <img src="./static/drone.jpg" alt="drone" style="width:100%">
+    </div>
+  </div>
+</div>
+
+<!--- Backend --->
+</br>
+<h2 id="backend" class="w3-center"> <b> Backend </b> </h2>
+</br>
+
+<!--- The App --->
+</br>
+<h2 id="theapp" class="w3-center"> <b> The App </b> </h2>
+</br>
+
+
+<!--- The Zone --->
+</br>
+<h2 id="thezone" class="w3-center"> <b> The Zone </b> </h2>
+</br>
+
+<div class="w3-row-padding">
+  <div class="w3-half">
+    <div class="w3-card-2">
+      <img src="./static/flyingfield.png" alt="flyingfield" style="width:100%">
+    </div>
+  </div>
+  
+  <div class="w3-half">
+    <p> The Zone, Also known as the Drone Phone Zone is our built in saftey feature for the project.</p>
+    <p> In order to safely limit where the drone can go, we created a geofence that prevents the drone from leaving a square area.</p>
+  </div>
+</div>
+
+<!--- Future Plans --->
+</br>
+<h2 id="future" class="w3-center"> <b> Future Plans </b> </h2>
+</br>
+
+<div class="w3-row-padding">
+  <p> In the future we would like to get bluetooth to work in order to have a more reliable and quick connection.</p>
+  <p> In addition, edits to the directional movement to make it more efficient. (such as a consistent heading so changing direction is faster)</p>
+</div>
+
+<!--- Links --->
+</br>
+<h2 id="links" class="w3-center"> <b> Links </b> </h2>
+</br>
+
+<div class="w3-center">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/eTC2xUKVzRQ" frameborder="0" allowfullscreen></iframe>        
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/4Yzy0KxnTpE" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<!--- Footer --->
+</br>
+<footer class="w3-container w3-theme-dark">
+  <p>Powered by <a href="http://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  <div style="position:relative;bottom:55px;" class="w3-tooltip w3-right"> 
+    <a class="w3-text-white" href="#nav">Go to Top</a>
+  </div>
+</footer>
+
+
+</html>
