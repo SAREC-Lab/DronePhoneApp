@@ -27,7 +27,7 @@
 <header class="w3-container w3-theme w3-padding" id="myHeader">
   <div class="w3-center">
     <h1 class="w3-xxxlarge w3-animate-right">Drone Phone</h1>
-    <h4 class="w3-animate-right">A mobile app that you can use to seemlessly control your drone.</h4>  
+    <h4 class="w3-animate-left">A mobile app that you can use to seemlessly control your drone.</h4>  
   </div>
 </header>
 
@@ -67,13 +67,15 @@
 <h2 id="glossary" class="w3-center"> <b> Glossary </b> </h2>
 </br>
 
-<p>Phone: The phone is used to control the movement of the drone. For the purposes of this app we will be using an android phone</p>
-<p>Drone: The Iris 3dr. The drone is controlled by the phones commands.</p>
-<p>Zone: This is the area limitation placed on the drone for safety precautions.</p>
-<p>Ground Station: This is the computer that mediates the commands of the phone and the movements of the drone.</p>
-<p>Control Scheme: This is the pattern of phone to drone interaction that the system adheres to.</p>
-<p>Device Interaction: These are the communication schemes that take place between the drone, phone, and ground station.</p>
-
+<div class="w3-row-padding">
+  <p>Phone: The phone is used to control the movement of the drone. For the purposes of this app we will be using an android phone</p>
+  <p>Drone: The Iris 3dr. The drone is controlled by the phones commands.</p>
+  <p>Zone: This is the area limitation placed on the drone for safety precautions.</p>
+  <p>Ground Station: This is the computer that mediates the commands of the phone and the movements of the drone.</p>
+  <p>Control Scheme: This is the pattern of phone to drone interaction that the system adheres to.</p>
+  <p>Device Interaction: These are the communication schemes that take place between the drone, phone, and ground station.</p>
+  <p>Firebase: The database used to store coordinates and work with the ground control station to control the drone.</p>
+</div>
 
 <!--- Process --->
 </br>
@@ -89,10 +91,10 @@
   
   <div class="w3-half">
     <p> We used Jira to organize sprints and keep up to date on the status of our project.</p>
+    <p> Sprint 1: Consisted of getting the basics of the project working inluding: bluetooth, gyro data, and basic drone commands.</p>
     <p> Early software issues caused us to leave some tasks in the backlog and prioritize new tasks.</p>
+    <p> Sprint 2: We reevaluated the direction of our project and focused on switching from bluetooth to firebase and making the final connections and computations to get the drone moving.</p>
   </div>
-
-
 </div>
 
 <!--- Hardware --->
@@ -103,8 +105,9 @@
 <div class="w3-row-padding">
   <div class="w3-half">
     <p> We used the Iris 3DR Drone for our testing and final demonstration.</p>
-    <p> The Drone is a classic quad copter equipped with 4 propellers.</p>
-    <p> In addition we used and android phone and a laptop as the controller and ground station for the drone.</p>
+    <p> The drone is a classic quad copter equipped with 4 propellers.</p>
+    <p> It comes with a detachable and rechargeable battery, controller as well as many other accessories. </p>
+    <p> In addition we used an android phone as our new controller and a laptop as our ground station to move the drone.</p>
   </div>
 
   <div class="w3-half">
@@ -118,6 +121,18 @@
 </br>
 <h2 id="backend" class="w3-center"> <b> Backend </b> </h2>
 </br>
+
+<div class="w3-row-padding">
+  <div class="w3-half">
+    <div class="w3-card-2">
+      <img src="./static/controls.png" alt="controls" style="width:100%">
+    </div>
+  </div>
+  
+  <div class="w3-half">
+    <p> Python </p>
+  </div>
+</div>
 
 <!--- The App --->
 </br>
@@ -138,8 +153,10 @@
   </div>
   
   <div class="w3-half">
-    <p> The Zone, Also known as the Drone Phone Zone is our built in saftey feature for the project.</p>
+    <p> The Zone, also known as the Drone Phone Zone is our built in saftey feature for the project.</p>
     <p> In order to safely limit where the drone can go, we created a geofence that prevents the drone from leaving a square area.</p>
+    <p> For testing purposes this was limited to the flying field, however the parameters can easily be changed to reflect the location of the user.</p>
+    <p> The idea is to maximize safety so that even those with little to no flight experience could control the drone easily and safely.</p>
   </div>
 </div>
 
@@ -149,7 +166,7 @@
 </br>
 
 <div class="w3-row-padding">
-  <p> In the future we would like to get bluetooth to work in order to have a more reliable and quick connection.</p>
+  <p> We would like to get bluetooth to work in order to have a more reliable and quick connection.</p>
   <p> In addition, edits to the directional movement to make it more efficient. (such as a consistent heading so changing direction is faster)</p>
 </div>
 
