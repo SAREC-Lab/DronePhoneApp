@@ -76,7 +76,7 @@
   <p>GPS (Global Positioning System): Used by the drone and our software for tracking position and movement. </p>
   <p>Ground Station: This is the computer that mediates the commands of the phone and the movements of the drone.</p>
   <p>Phone: The phone is used to control the movement of the drone. For the purposes of this app we will be using an android phone</p>
-  <p>Zone: This is the area limitation placed on the drone for safety precautions.</p>
+  <p>Zone: This is the area limitation (geofence) placed on the drone for safety precautions.</p>
 </div>
 
 <!--- Process --->
@@ -132,7 +132,9 @@
   </div>
   
   <div class="w3-half">
-    <p> Python </p>
+    <p> The backend was built using python and some libraries to talk between the drone and the ground control station. </p>
+    <p> Ground control connects to the Firebase database which stores all the data from the mobile app. </p>
+    <p> The data is stored in real time from the mobile app for the python code to access and interpret into commands for the drone. </p>
   </div>
 </div>
 
@@ -147,6 +149,12 @@
     <p> The app displays the current values of gravity for each of the three directions. </p>
     <p> Under the hood these values are being sent to the being sent to a database that stores them for future use.</p>
     <p> We made the app responsive by taking new readings from the sensors frequently and lightweight by saving additional computations for the ground control station to make. </p>
+  </div>
+  
+  <div class="w3-half">
+    <div class="w3-card-2">
+      <img src="./static/firebase.png" alt="firebase" style="width:100%">
+    </div>
   </div>
 </div>
 
@@ -189,7 +197,13 @@
   <iframe width="560" height="315" src="https://www.youtube.com/embed/eTC2xUKVzRQ" frameborder="0" allowfullscreen></iframe>        
   <iframe width="560" height="315" src="https://www.youtube.com/embed/4Yzy0KxnTpE" frameborder="0" allowfullscreen></iframe>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/0jMqXdPKawI" frameborder="0" allowfullscreen></iframe>
+  </br>
 </div>
+
+<div class="w3-row-padding">
+  <a href="https://github.com/SAREC-Lab/DronePhoneApp"> Github Repo </a>
+</div>
+
 
 <!--- Footer --->
 </br>
